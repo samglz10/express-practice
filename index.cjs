@@ -89,10 +89,27 @@ app.post('/users', (req, res)=>{
 
 
 // Add a delete user endpoint
+app.delete('/user/:name',(req,res)=> {
+    const name = req.body.name
+    if(name === undefined){
+        res.status(400)
+        res.end()
+    } else {
+        res.send('User Deleted!')
+    }
+
+})
+
 
 // Add a put user endpoint
+app.put('/user/:name', (req,res) =>{
+    res.send('updated user')
+})
 
 // add a patch user endpoint
+app.patch('/user', (req,res) =>{
+    res.send('User has been patched')
+})
 
 
 app.listen(4872, () => {
